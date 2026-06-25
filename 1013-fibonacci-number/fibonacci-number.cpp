@@ -5,9 +5,10 @@ public:
 
         int first = 0;
         int second = 1;
+        int temp;
 
         for (int i = 2; i <= n; i++) {
-            int temp = first + second;
+            temp = first + second;
             first = second;
             second = temp;
         }
