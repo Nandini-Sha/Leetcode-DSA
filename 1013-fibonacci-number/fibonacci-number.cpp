@@ -1,12 +1,17 @@
 class Solution {
 public:
-    vector<int> dp = vector<int>(31, -1);
-
     int fib(int n) {
         if (n <= 1) return n;
 
-        if (dp[n] != -1) return dp[n];
+        int first = 0;
+        int second = 1;
 
-        return dp[n] = fib(n - 1) + fib(n - 2);
+        for (int i = 2; i <= n; i++) {
+            int temp = first + second;
+            first = second;
+            second = temp;
+        }
+
+        return second;
     }
 };
