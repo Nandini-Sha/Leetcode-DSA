@@ -1,22 +1,29 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        if(nums.size()==1) return nums[0];
-        int r1 = 0, r2 = 0;
-        int crr = 0;
-        for(int i = 0;i<nums.size()-1;i++){
-            crr = max(r1+nums[i],r2);
-            r1 = r2;
-            r2 = crr;
+        int n = nums.size();
+        if(n==1) return nums[0];
+        int take0 = nums[0];    
+        int prev2 = 0;
+        int temp;
+        for(int i = 1;i<n-1;i++){
+            temp = nums[i];
+            if(i>1) temp+=prev2;
+            prev2 = take0;
+            take0 = max(temp,take0);
+            
         }
-        int a = max(r1,r2);
-        r1 = 0, r2 = 0;
-        for(int i = 1;i<nums.size();i++){
-            crr = max(r1+nums[i],r2);
-            r1 = r2;
-            r2 = crr;
+
+        int nottake0 = nums[1];
+        prev2 = 0;
+        for(int i = 2;i<n;i++){
+            temp = nums[i];
+            if(i>2) temp+=prev2;
+            prev2 = nottake0;
+            nottake0 = max(temp,prev2);
         }
-        int b = max(r1,r2);
-        return max(a,b);
+        
+        return max(take0,nottake0);
     }
+
 };
