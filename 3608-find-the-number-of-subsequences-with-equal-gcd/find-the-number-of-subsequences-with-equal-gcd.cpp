@@ -4,7 +4,8 @@ public:
     const int MOD = 1e9 + 7;
     int subsequencePairCount(vector<int>& nums) {
         int n = nums.size();
-        dp.resize(n + 1, vector<vector<int>>(201, vector<int>(201, -1)));
+        int m = *max_element(nums.begin(),nums.end());
+        dp.resize(n + 1, vector<vector<int>>(m+1, vector<int>(m+1, -1)));
         
         
         return dfs(0,0,0,n,nums);
