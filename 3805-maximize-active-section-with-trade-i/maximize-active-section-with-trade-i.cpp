@@ -37,3 +37,6 @@ public:
         return gain + ones;
     }
 };
+
+
+//Andddd I did it myself .... No help taken!!!!
