@@ -14,6 +14,7 @@ public:
             if(nums[i]>=max){
                 prev = max;
                 max = nums[i];
+                
             }
             else if(nums[i]>prev){
                 prev = nums[i];
